@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.MvcRouting", "src\Sitecore.MvcRouting\Sitecore.MvcRouting.csproj", "{568C56DC-030C-4386-8287-10E1D8225A72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sitecore Configuration", "Sitecore Configuration", "{982410EA-E243-4F6C-8377-9A68ECDE2172}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App_Config", "App_Config", "{479713E6-5505-4F96-BF4E-B923508CE01D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Include", "Include", "{E8D6FC28-B1EB-4F34-ACB3-6648C6D76AF2}"
+	ProjectSection(SolutionItems) = preProject
+		conf\App_Config\Include\MvcRouting.config = conf\App_Config\Include\MvcRouting.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{568C56DC-030C-4386-8287-10E1D8225A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{568C56DC-030C-4386-8287-10E1D8225A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{568C56DC-030C-4386-8287-10E1D8225A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{568C56DC-030C-4386-8287-10E1D8225A72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{479713E6-5505-4F96-BF4E-B923508CE01D} = {982410EA-E243-4F6C-8377-9A68ECDE2172}
+		{E8D6FC28-B1EB-4F34-ACB3-6648C6D76AF2} = {479713E6-5505-4F96-BF4E-B923508CE01D}
+	EndGlobalSection
+EndGlobal
