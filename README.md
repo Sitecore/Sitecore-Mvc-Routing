@@ -15,3 +15,7 @@ Installation
 Usage
 -----
 See the `\doc\Example` directory for a quick example. (More detailed example coming soon).
+
+Todo
+-----
+* Add user controls to match the XSLT extension methods
