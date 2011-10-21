@@ -24,6 +24,14 @@ namespace Sitecore.MvcRouting.Extensions
             return routeDataDict.ContainsKey(key) ? routeDataDict[key] : string.Empty;
         }
 
+        public string MatchedRoute()
+        {
+            var routeData = HttpContext.Current.Items["RouteData"];
+            if (routeData == null) return string.Empty;
+            var routeDataDict = (Dictionary<string, string>)routeData;
+            return routeDataDict.ContainsKey("routeName") ? routeDataDict["routeName"] : string.Empty;
+        }
+
         public XPathNodeIterator RouteData()
         {
             var packet = new XDocument();
