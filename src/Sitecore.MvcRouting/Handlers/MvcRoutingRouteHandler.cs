@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Routing;
@@ -6,19 +7,31 @@ namespace Sitecore.MvcRouting.Handlers
 {
     public class MvcRoutingRouteHandler : IRouteHandler
     {
-        public IHttpHandler GetHttpHandler(RequestContext requestContext)
-        {
-            var path = requestContext.RouteData.GetRequiredString("sitecoreItemPath");
+        private readonly string _sitecoreItemPath;
 
-            if (!string.IsNullOrEmpty(path))
+        public MvcRoutingRouteHandler(string sitecoreItemPath)
+        {
+            if (string.IsNullOrEmpty(sitecoreItemPath))
             {
-                if (Context.Site != null)
-                {
-                    requestContext.RouteData.Values["sitecoreItemPath"] = Context.Site.StartPath + path;
-                }
+                throw new ArgumentNullException("sitecoreItemPath");
             }
 
-            return (new MvcRoutingHttpHandler { RequestContext = requestContext });
+            _sitecoreItemPath = sitecoreItemPath;
+        }
+
+        public IHttpHandler GetHttpHandler(RequestContext requestContext)
+        {
+            if (requestContext == null)
+            {
+                throw new ArgumentNullException("requestContext");
+            }
+
+            if (Context.Site == null)
+            {
+                throw new ArgumentException("Sitecore not initialised.");
+            }
+
+            return (new MvcRoutingHttpHandler { RequestContext = requestContext, SitecoreItemPath = Context.Site.StartPath + _sitecoreItemPath });
         }
     }
 }

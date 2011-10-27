@@ -37,9 +37,9 @@ namespace Sitecore.MvcRouting.Pipelines
                 return null;
             }
 
-            if (!routeData.Values.ContainsKey("sitecoreItemPath"))
+            if (routeData.RouteHandler is StopRoutingHandler)
             {
-                return null;
+                return null; //Do not process this route
             }
 
             var handler = routeData.RouteHandler.GetHttpHandler(new RequestContext(httpContextWrapper, routeData));
@@ -48,13 +48,11 @@ namespace Sitecore.MvcRouting.Pipelines
             {
                 var path = string.Empty;
 
-                if (handler.GetType() == typeof(MvcRoutingHttpHandler))
+                if (handler is MvcRoutingHttpHandler)
                 {
                     handler = handler as MvcRoutingHttpHandler;
 
-                    if (handler == null) return null;
-
-                    path = MainUtil.DecodeName(((MvcRoutingHttpHandler)handler).RequestContext.RouteData.GetRequiredString("sitecoreItemPath"));
+                    path = MainUtil.DecodeName(((MvcRoutingHttpHandler)handler).SitecoreItemPath);
                 }
 
                 var itm = args.GetItem(path);
