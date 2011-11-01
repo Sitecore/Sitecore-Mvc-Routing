@@ -15,16 +15,15 @@ namespace Sitecore.MvcRouting.Pipelines
         {
             Assert.ArgumentNotNull(args, "args");
 
-            if (((Context.Item != null) || (Context.Database == null)) || (args.Url.ItemPath.Length == 0)) return;
+            if (((Context.Database == null)) || (args.Url.ItemPath.Length == 0)) return;
 
-            var item = ResolveRouteTable(args);
+            var routedItem = ResolveRouteTable(args);
 
-            if (item == null)
+            //Route matches but no sitecore item exists for that path
+            if (Context.Item == null && routedItem != null)
             {
-                return;
+                Context.Item = routedItem;
             }
-
-            Context.Item = item;
         }
 
         private static Item ResolveRouteTable(HttpRequestArgs args)
