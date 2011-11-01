@@ -50,6 +50,9 @@ You can also add `IgnoreRoute` paths, the routing resolver will not run if these
 
 ####XSLT####
 
+**NOTE** : Remember to add the namespace `xmlns:scr="http://www.sitecore.net/mvc/routing"` at the top of your XSLT file
+and add `scr` into the `exclude-result-prefixes` list.
+
 You can retrieve individual values using `RouteDataValue(<name>)`  
 
     <div>
