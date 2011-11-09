@@ -100,7 +100,8 @@ You can also retrieve the name of the currently matched route using `MatchedRout
 
 See the `\doc\Example` directory for these quick examples.
 
-####Fork Me! / Todo####
+Fork Me! / Todo
+-----
 I would like this to be a community effort so please feel free to fork this project and send me some pull requests for any improvements.
 
 Things to be done: 
