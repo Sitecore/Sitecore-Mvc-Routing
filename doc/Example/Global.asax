@@ -10,9 +10,8 @@
 
     private static void RegisterRoutes(RouteCollection routes)
     {
-		routes.Ignore("books/");
-        routes.MapSitecoreRoute("booksExt", "books/{bookname}/{chapter}/{page}.{extension}", "/books", new { bookname = string.Empty, chapter = string.Empty, page = string.Empty, extension = string.Empty });
-        routes.MapSitecoreRoute("books", "books/{bookname}/{chapter}/{page}", "/books", new { bookname = string.Empty, chapter = string.Empty, page = string.Empty, extension = string.Empty });                                                                    //Sitecore 
+        routes.MapSitecoreRoute("booksExt", "{17E30F07-67D0-457F-9B18-B0B2DB435081}/{bookName}/{chapterName}/{pageNumber}.{extension}", new { bookName = string.Empty, chapterName = string.Empty, pageNumber = string.Empty, extension = string.Empty });
+        routes.MapSitecoreRoute("books", "{17E30F07-67D0-457F-9B18-B0B2DB435081}/{bookName}/{chapterName}/{pageNumber}", new { bookName = string.Empty, chapterName = string.Empty, pageNumber = string.Empty });                                                                    //Sitecore 
     }
 
 </script>

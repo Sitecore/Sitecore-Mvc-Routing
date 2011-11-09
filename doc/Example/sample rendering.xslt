@@ -25,28 +25,31 @@
         <sc:text field="text" />
       </div>
     </div>
+	<hr />
     <div>
-      Book Name : <xsl:value-of select="scr:RouteDataValue('bookname')"/> <br />
-      Book Chapter : <xsl:value-of select="scr:RouteDataValue('chapter')"/> <br />
-      Book Page : <xsl:value-of select="scr:RouteDataValue('page')"/> <br />
+      Book Name : <xsl:value-of select="scr:RouteDataValue('bookName')"/> <br />
+      Book Chapter : <xsl:value-of select="scr:RouteDataValue('chapterName')"/> <br />
+      Book Page : <xsl:value-of select="scr:RouteDataValue('pageNumber')"/> <br />
     </div>
     <hr />
-    <table border="1px">
-      <tr>
-        <th>Key</th>
-        <th>Value</th>
-      </tr>
-      <xsl:for-each select="scr:RouteData()/@*">
+    <xsl:if test="scr:MatchedRoute()">
+      <table border="1px">
         <tr>
-          <td>
-            <xsl:value-of select="name()" />
-          </td>
-          <td>
-            <xsl:value-of select="." />
-          </td>
+          <th>Key</th>
+          <th>Value</th>
         </tr>
-      </xsl:for-each>
-    </table>
+        <xsl:for-each select="scr:RouteData()/@*">
+          <tr>
+            <td>
+              <xsl:value-of select="name()" />
+            </td>
+            <td>
+              <xsl:value-of select="." />
+            </td>
+          </tr>
+        </xsl:for-each>
+      </table>
+    </xsl:if>
 
   </xsl:template>
 
