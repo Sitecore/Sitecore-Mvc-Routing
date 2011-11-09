@@ -7,16 +7,16 @@ namespace Sitecore.MvcRouting.Handlers
 {
     public class MvcRoutingRouteHandler : IRouteHandler
     {
-        private readonly string _sitecoreItemPath;
+        private readonly string _sitecoreItemId;
 
-        public MvcRoutingRouteHandler(string sitecoreItemPath)
+        public MvcRoutingRouteHandler(string sitecoreItemId)
         {
-            if (string.IsNullOrEmpty(sitecoreItemPath))
+            if (string.IsNullOrEmpty(sitecoreItemId))
             {
-                throw new ArgumentNullException("sitecoreItemPath");
+                throw new ArgumentNullException("sitecoreItemId");
             }
 
-            _sitecoreItemPath = sitecoreItemPath;
+            _sitecoreItemId = sitecoreItemId;
         }
 
         public IHttpHandler GetHttpHandler(RequestContext requestContext)
@@ -31,7 +31,7 @@ namespace Sitecore.MvcRouting.Handlers
                 throw new ArgumentException("Sitecore not initialised.");
             }
 
-            return (new MvcRoutingHttpHandler { RequestContext = requestContext, SitecoreItemPath = Context.Site.StartPath + _sitecoreItemPath });
+            return (new MvcRoutingHttpHandler { RequestContext = requestContext, SitecoreItemId = _sitecoreItemId });
         }
     }
 }

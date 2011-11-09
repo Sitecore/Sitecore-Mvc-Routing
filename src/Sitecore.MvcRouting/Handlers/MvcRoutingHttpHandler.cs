@@ -6,8 +6,8 @@ namespace Sitecore.MvcRouting.Handlers
     public class MvcRoutingHttpHandler : IHttpHandler
     {
         public RequestContext RequestContext { get; set; }
-        public string SitecoreItemPath { get; set; }
-   
+        public string SitecoreItemId { get; set; }
+
         #region IHttpHandler Members
 
         public bool IsReusable
@@ -15,10 +15,7 @@ namespace Sitecore.MvcRouting.Handlers
             get { return false; }
         }
 
-        public void ProcessRequest(HttpContext context)
-        {
-            return;
-        }
+        public void ProcessRequest(HttpContext context) { }
 
         #endregion
     }
