@@ -13,8 +13,6 @@ namespace Sitecore.MvcRouting.Extensions
     {
         public string RouteDataValue(string key)
         {
-            key = key.ToLower();
-
             var routeData = HttpContext.Current.Items["RouteData"];
 
             if (routeData == null) return (string.Empty);
