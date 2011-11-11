@@ -27,17 +27,20 @@ To work with Sitecore we have `MapSitecoreRoute` ..
 
     private static void RegisterRoutes(RouteCollection routes)
     {
-		routes.MapSitecoreRoute("books", "{17E30F07-67D0-457F-9B18-B0B2DB435081}/{bookname}/{chapter}/{page}");
+		routes.MapSitecoreRoute("books", "{17E30F07-67D0-457F-9B18-B0B2DB435081}","{bookname}/{chapter}/{page}");
     }
 
+    MapSitecoreRoute(<routeName>,<sitecoreItemId>,<routePatternUrl>);
+    
 .. the main difference here is we have to tell Sitecore which item we want to map these values to, also, we also dont want to hard-code a path incase a user decided to rename an item.
-This is why we provide a GUID as the first part of the URL. It's a little ugly but it provides better protection against an item being moved or renamed.
+This is why we provide a GUID as the second parameter. It's a little ugly but it provides better protection against an item being moved or renamed.
 
 We are still able to provide defaults for the matched values..
 
     routes.MapSitecoreRoute(
   	  	"books",
-			  "{17E30F07-67D0-457F-9B18-B0B2DB435081}/{bookname}/{chapter}/{page}",
+			  "{17E30F07-67D0-457F-9B18-B0B2DB435081}",
+			  "/{bookname}/{chapter}/{page}",
 			  "/books",
 			  new { 
 				  bookname = string.Empty,
