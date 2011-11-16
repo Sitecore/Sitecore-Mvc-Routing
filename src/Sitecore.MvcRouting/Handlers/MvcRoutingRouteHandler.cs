@@ -26,11 +26,6 @@ namespace Sitecore.MvcRouting.Handlers
                 throw new ArgumentNullException("requestContext");
             }
 
-            if (Context.Site == null)
-            {
-                throw new ArgumentException("Sitecore not initialised.");
-            }
-
             return (new MvcRoutingHttpHandler { RequestContext = requestContext, SitecoreItemId = _sitecoreItemId });
         }
     }
