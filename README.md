@@ -39,8 +39,7 @@ We are still able to provide defaults for the matched values..
     routes.MapSitecoreRoute(
   	  	"books",
 			  "{17E30F07-67D0-457F-9B18-B0B2DB435081}",
-			  "/{bookname}/{chapter}/{page}",
-			  "/books",
+			  "{bookname}/{chapter}/{page}",
 			  new { 
 				  bookname = string.Empty,
 				  chapter = string.Empty,
