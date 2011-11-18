@@ -101,7 +101,10 @@ namespace Sitecore.MvcRouting.Pipelines
 
                 if (pathItem != null)
                 {
-                    var path = LinkManager.GetItemUrl(pathItem).TrimStart('/').Replace(".aspx", "");
+                    var options = UrlOptions.DefaultOptions;
+                    options.AddAspxExtension = false;
+                    options.LanguageEmbedding = LanguageEmbedding.Never;
+                    var path = LinkManager.GetItemUrl(pathItem, options).TrimStart('/');
                     route.Url = route.Url.Replace(elements[0], path);
 
                     path = path + "/";
